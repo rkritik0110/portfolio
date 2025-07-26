@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritik Kumar - Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced styles for new sections */
+        .resume-section, .experience-section, .education-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .resume-section {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            text-align: center;
+        }
+
+        .resume-download {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .resume-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
+            background: linear-gradient(45deg, #0099cc, #00d4ff);
+        }
+
+        .download-btn::before {
+            content: "📄";
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, #00d4ff, #0099cc);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            animation-delay: 0.2s;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            animation-delay: 0.4s;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #00d4ff;
+            border-radius: 50%;
+            top: 30px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-date {
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-company {
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .timeline-skill {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 50px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item::before {
+                left: 10px !important;
+                right: auto !important;
+            }
+        }
+
+        /* Education specific styles */
+        .education-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .education-degree {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .education-school {
+            color: #00d4ff;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-year {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .education-description {
+            color: #ccc;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Three.js Background Canvas -->
+    <canvas id="space-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">ritik</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="glitch-text" data-text="Ritik Kumar">Ritik Kumar</span>
+                </h1>
+                <h2 class="hero-subtitle">
+                    <span class="typewriter">Full Stack Web Developer</span>
+                </h2>
+                <p class="hero-description">
+                    Crafting immersive digital experiences with cutting-edge technologies
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="floating-icon" data-icon="🚀"></div>
+                    <div class="floating-icon" data-icon="⚡"></div>
+                    <div class="floating-icon" data-icon="🌟"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-card">
+                        <p>I'm a passionate web developer with 1+ years of experience creating dynamic and responsive web applications. I specialize in modern JavaScript frameworks and have a strong foundation in both front-end and back-end development.
+
+My journey began with curiosity about how websites work, and has evolved into a deep passion for creating digital experiences that solve real-world problems. I'm constantly learning new technologies and best practices to stay current in this ever-evolving field.
+
+When I'm not coding, you can find me contributing to open-source projects, mentoring junior developers, or exploring the latest web technologies.</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Client Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Technical Arsenal</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Frontend</h4>
+                            <div class="skill-items">
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Vue.js</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">Three.js</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Backend</h4>
+                            <div class="skill-items">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Cloud & Tools</h4>
+                            <div class="skill-items">
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h3 class="timeline-title">Frontend Developer</h3>
+                        <div class="timeline-company">Tech Solutions Inc.</div>
+                        <p class="timeline-description">
+                            Developed responsive web applications using React and modern JavaScript. Collaborated with design teams to implement pixel-perfect UI/UX designs and optimized applications for maximum speed and scalability.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">React</span>
+                            <span class="timeline-skill">JavaScript</span>
+                            <span class="timeline-skill">CSS3</span>
+                            <span class="timeline-skill">Git</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2024</div>
+                        <h3 class="timeline-title">Web Developer Intern</h3>
+                        <div class="timeline-company">Digital Agency Pro</div>
+                        <p class="timeline-description">
+                            Assisted in building client websites and web applications. Gained hands-on experience with modern web technologies and learned best practices for responsive design and cross-browser compatibility.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">HTML5</span>
+                            <span class="timeline-skill">CSS3</span>
+                            <span class="timeline-skill">JavaScript</span>
+                            <span class="timeline-skill">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3 class="timeline-title">Freelance Web Developer</h3>
+                        <div class="timeline-company">Self-Employed</div>
+                        <p class="timeline-description">
+                            Created custom websites for small businesses and startups. Managed complete project lifecycle from client consultation to deployment, delivering projects on time and within budget.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">HTML</span>
+                            <span class="timeline-skill">CSS</span>
+                            <span class="timeline-skill">JavaScript</span>
+                            <span class="timeline-skill">PHP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="education-content">
+                <div class="education-item">
+                    <h3 class="education-degree">Bachelor of Technology in Electronics and Communication </h3>
+                    <div class="education-school">Indian Institute of Information Technology Manipur (IIIT M)</div>
+                    <div class="education-year">2022 - 2026</div>
+                    <p class="education-description">
+                        Completed comprehensive coursework in software engineering, data structures, algorithms, and web technologies. Participated in coding competitions and hackathons.
+                    </p>
+                </div>
+                
+                <div class="education-item">
+                    <h3 class="education-degree">Higher Secondary Certificate (HSC)</h3>
+                    <div class="education-school">A.N College Patna</div>
+                    <div class="education-year">2019 - 2021</div>
+                    <p class="education-description">
+                        Specialized in Science stream with Mathematics, Physics, and Chemistry.
+                    </p>
+                </div>
+                
+                <div class="education-item">
+                    <h3 class="education-degree">Secondary School Certificate (SSC)</h3>
+                    <div class="education-school">Doon Global School Patna</div>
+                    <div class="education-year">2019</div>
+                    <p class="education-description">
+                        Completed foundational education with distinction. Actively participated in science olympiads and computer programming competitions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/19819265/pexels-photo-19819265.jpeg?auto=compress&cs=tinysrgb&w=800" alt="devTinder">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://rkritik0110.github.io/devTinder/" class="project-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/rkritik0110/devTinder" class="project-link" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>devTinder</h3>
+                        <p>A developer matchmaking web app that lets devs connect by swiping profiles just like Tinder!</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Zerodha Clone">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://rkritik0110.github.io/Zerodha-Clone/" class="project-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/rkritik0110/Zerodha-Clone" class="project-link" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Zerodha Clone</h3>
+                        <p>A responsive clone of Zerodha's homepage featuring custom animations, hover effects and grid-based layout.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3943722/pexels-photo-3943722.jpeg?auto=compress&cs=tinysrgb&w=800" alt="E-commerce App">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://rkritik0110.github.io/ecommerce-html-css-js/" class="project-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/rkritik0110/ecommerce-html-css-js" class="project-link" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Website</h3>
+                        <p>A beautiful frontend-only e-commerce template built using pure HTML, CSS and JavaScript with cart & product UI features.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Resume Section -->
+<section id="resume" class="resume-section" style="display: flex; justify-content: center;">
+  <div class="container" style="max-width: 700px; width: 100%; padding: 2rem;">
+    <div class="section-header">
+      <h2 class="section-title">Resume</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="resume-download" style="background-color: rgba(255, 255, 255, 0.02); border-radius: 12px; padding: 2rem; text-align: center;">
+      <span class="resume-icon" style="font-size: 2rem;">📄</span>
+      <h3 style="margin: 1rem 0 0.5rem;">Download My Resume</h3>
+      <p style="font-size: 0.95rem;">Get a comprehensive overview of my skills, experience, and achievements.</p>
+      <a href="https://drive.google.com/file/d/1tvSX_T3ZKK4oU9ImPTlHOmpFY1hYvUav/view?usp=drive_link" 
+         class="download-btn" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         style="margin-top: 1.5rem; display: inline-block; background: #00f0ff; padding: 10px 20px; color: #000; border-radius: 20px; font-weight: bold;">
+        ⬇️ Download Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Build Something Amazing</h3>
+                    <p>Ready to transform your ideas into digital reality? I'm always excited to collaborate on innovative projects and bring creative visions to life.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:rkritik1922004@gmail.com">rkritik1922004@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/ritiklinnkedin" target="_blank">linkedin.com/in/ritiklinnkedin</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🐙</div>
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/rkritik0110" target="_blank">github.com/rkritik0110</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <div class="btn-effect"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ritik Kumar. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://x.com/RITIKKUMAR1979" class="social-link">X</a>
+                    <a href="https://www.linkedin.com/in/ritiklinnkedin/" class="social-link">LinkedIn</a>
+                    <a href="https://github.com/rkritik0110" class="social-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+    <script>
+        // Resume download functionality
+        function downloadResume() {
+            // Create a sample resume content
+            const resumeContent = `
+RITIK KUMAR
+Full Stack Web Developer
+Email: rkritik1922004@gmail.com
+LinkedIn: linkedin.com/in/ritiklinnkedin
+GitHub: github.com/rkritik0110
+
+SUMMARY
+Passionate web developer with 1+ years of experience creating dynamic and responsive web applications. 
+Specialized in modern JavaScript frameworks with strong foundation in both front-end and back-end development.
+
+EXPERIENCE
+Frontend Developer | Tech Solutions Inc. | 2024 - Present
+• Developed responsive web applications using React and modern JavaScript
+• Collaborated with design teams to implement pixel-perfect UI/UX designs
+• Optimized applications for maximum speed and scalability
+
+Web Developer Intern | Digital Agency Pro | 2023 - 2024
+• Assisted in building client websites and web applications
+• Gained hands-on experience with modern web technologies
+• Learned best practices for responsive design and cross-browser compatibility
+
+EDUCATION
+Bachelor of Technology in Computer Science
+National Institute of Technology (NIT) | 2020 - 2024
+
+SKILLS
+Frontend: HTML, CSS, JavaScript, React, Vue.js, TypeScript, Three.js
+Backend: Node.js, Python, PostgreSQL, MongoDB
+Cloud & Tools: AWS, Docker, Git, Figma
+
+PROJECTS
+• devTinder - Developer matchmaking web app
+• Zerodha Clone - Responsive trading platform clone
+• E-commerce Website - Full-featured online store template
+            `;
+
+            // Create and download the file
+            const blob = new Blob([resumeContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Ritik_Kumar_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            // Show success message
+            alert('Resume downloaded successfully!');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll for timeline items
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .education-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
