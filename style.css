@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -25,7 +27,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f0f0f 100%);
+    background: #0a0a0a;
 }
 
 /* Navigation */
@@ -34,9 +36,9 @@ body {
     top: 0;
     width: 100%;
     padding: 1rem 0;
-    background: rgba(10, 10, 10, 0.9);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -57,11 +59,8 @@ body {
 }
 
 .logo-text {
-    background: linear-gradient(45deg, #00f5ff, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+    color: #00f5ff;
+    text-shadow: none;
 }
 
 .nav-menu {
@@ -86,7 +85,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #00f5ff, #8b5cf6);
+    background: #00f5ff;
     transition: width 0.3s ease;
 }
 
@@ -97,7 +96,7 @@ body {
 
 .nav-link:hover {
     color: #00f5ff;
-    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    text-shadow: none;
 }
 
 .nav-hamburger {
@@ -131,29 +130,17 @@ body {
     font-family: 'Orbitron', monospace;
     font-size: 3rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #00f5ff, #8b5cf6, #ff6b6b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #00f5ff;
     margin-bottom: 1rem;
-    animation: glow 2s ease-in-out infinite alternate;
+    text-shadow: none;
 }
 
 .section-line {
     width: 100px;
     height: 3px;
-    background: linear-gradient(90deg, #00f5ff, #8b5cf6);
+    background: #00f5ff;
     margin: 0 auto;
     border-radius: 2px;
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
-    }
-    to {
-        text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
-    }
 }
 
 /* Hero Section */
@@ -186,11 +173,8 @@ body {
 .glitch-text {
     position: relative;
     display: inline-block;
-    background: linear-gradient(45deg, #00f5ff, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: glitch 3s infinite;
+    color: #00f5ff;
+    text-shadow: none;
 }
 
 .glitch-text::before,
@@ -289,8 +273,8 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #00f5ff, #8b5cf6);
-    color: #ffffff;
+    background: #00f5ff;
+    color: #000000;
     box-shadow: 0 4px 15px rgba(0, 245, 255, 0.3);
 }
 
@@ -394,7 +378,7 @@ body {
 
 .about-card {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 245, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 2.5rem;
     backdrop-filter: blur(10px);
@@ -514,7 +498,7 @@ body {
 
 .project-card {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 245, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -654,7 +638,7 @@ body {
     gap: 1rem;
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 245, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition: all 0.3s ease;
 }
@@ -688,7 +672,7 @@ body {
 
 .contact-form {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 245, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 2.5rem;
     backdrop-filter: blur(10px);
@@ -704,7 +688,7 @@ body {
     width: 100%;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 245, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     color: #ffffff;
     font-size: 1rem;
@@ -752,7 +736,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: rgba(255, 255, 255, 0.2);
     transition: left 0.5s ease;
 }
 
@@ -764,7 +748,7 @@ body {
 .footer {
     padding: 2rem 0;
     background: rgba(0, 0, 0, 0.8);
-    border-top: 1px solid rgba(0, 245, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
@@ -788,7 +772,7 @@ body {
 
 .social-link:hover {
     color: #00f5ff;
-    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    text-shadow: none;
 }
 
 /* Responsive Design */
